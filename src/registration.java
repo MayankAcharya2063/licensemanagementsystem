@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class register {
+    public String licenseType = "None"; // A, B, or K
+    public String licenseStatus = "Not Applied"; // Pending, Approved, Rejected
     public String dob;
     public  static String  admin_username;
     public  static String admin_password;

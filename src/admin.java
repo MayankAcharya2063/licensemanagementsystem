@@ -16,5 +16,29 @@ public static void admin_permission(){
     } else {
         System.out.println("Invalid admin credentials.");
     }
+    System.out.println("\n--- License Applications ---");
+    for (register reg : register.register_user_or_admin) {
+        if (!reg.licenseStatus.equals("Not Applied")) {
+            System.out.println("ID: " + reg.usernameID + ", Name: " + reg.name + ", License Type: " + reg.licenseType + ", Status: " + reg.licenseStatus);
+        }
+    }
+    System.out.println("Enter user ID to update status or 0 to exit:");
+    int targetId = sc.nextInt();
+    sc.nextLine();
+    if (targetId != 0) {
+        for (register reg : register.register_user_or_admin) {
+            if (reg.usernameID == targetId) {
+                System.out.println("Approve or Reject license? (A/R): ");
+                String decision = sc.nextLine();
+                if (decision.equalsIgnoreCase("A")) {
+                    reg.licenseStatus = "Approved";
+                } else if (decision.equalsIgnoreCase("R")) {
+                    reg.licenseStatus = "Rejected";
+                }
+                System.out.println("Updated status: " + reg.licenseStatus);
+                break;
+            }
+        }
+    }
 }
 }

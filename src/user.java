@@ -17,12 +17,17 @@ public class user {
             int u_choice = sc.nextInt();
             switch (u_choice) {
                 case 1:
-                System.out.println("......Choose type of license you want to apply for! (A/B/K) ......");
-                System.out.print("A)2 wheeler bike  B)Car  K)Scooter :");
-                String user_choice = sc.next().toLowerCase();
+                    System.out.println("......Choose type of license you want to apply for! (A/B/K) ......");
+                    System.out.print("A)2 wheeler bike  B)Car  K)Scooter :");
+                    reg.licenseType = sc.next().toUpperCase();
+                    reg.licenseStatus = "Pending";
+                    System.out.println("License application submitted. Status: Pending");
                 break;
                 case 2:
+                    System.out.println("Your license application status: " + reg.licenseStatus);
+                    System.out.println("License type applied: " + reg.licenseType);
                     break;
+
                     case 3:
                         System.out.println("....Exiting to main menu....");
                         userchoice.user_choice();
